@@ -21,7 +21,10 @@ Public Class IE_Expense_Helper
     Private Sub IE_Expense_Helper_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
         files = e.Data.GetData(DataFormats.FileDrop)
         For Each path In files
-
+            Dim ext As String = IO.Path.GetExtension(path)
+            If ext = ".pdf" Then
+                'Run Main Script here -> Probably going to generate new form(s) based on PDF's being taken in
+            End If
         Next
     End Sub
 
