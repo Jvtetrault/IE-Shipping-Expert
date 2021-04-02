@@ -1,0 +1,4 @@
+C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE Export Helper.vbprojAssemblyReference.cache
+C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE_Export_Helper.IE_Expense_Helper.resources
+C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE_Export_Helper.Resources.resources
+C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE Export Helper.vbproj.GenerateResource.cache
