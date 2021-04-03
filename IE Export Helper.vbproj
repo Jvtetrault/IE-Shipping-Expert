@@ -122,6 +122,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PasswordChange.Designer.vb">
+      <DependentUpon>PasswordChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PDF Test.Designer.vb">
       <DependentUpon>PDF Test.vb</DependentUpon>
     </Compile>
@@ -155,6 +161,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordChange.resx">
+      <DependentUpon>PasswordChange.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PDF Test.resx">
       <DependentUpon>PDF Test.vb</DependentUpon>

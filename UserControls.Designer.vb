@@ -25,9 +25,9 @@ Partial Class UserControls
         Me.UserNameTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.ChangePasswordButton = New System.Windows.Forms.Button()
+        Me.PasswordTextBox = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -35,15 +35,15 @@ Partial Class UserControls
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.NameTextBox = New System.Windows.Forms.TextBox()
-        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
-        Me.CompanyTextBox = New System.Windows.Forms.TextBox()
-        Me.TitleTextBox = New System.Windows.Forms.TextBox()
-        Me.EmailTextBox = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.PhoneTextBox = New System.Windows.Forms.TextBox()
+        Me.EmailTextBox = New System.Windows.Forms.TextBox()
+        Me.TitleTextBox = New System.Windows.Forms.TextBox()
+        Me.CompanyTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.NameTextBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.FaxTextBox = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -80,14 +80,14 @@ Partial Class UserControls
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "User Login"
         '
-        'Label2
+        'ChangePasswordButton
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 69)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 17)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Password"
+        Me.ChangePasswordButton.Location = New System.Drawing.Point(224, 61)
+        Me.ChangePasswordButton.Name = "ChangePasswordButton"
+        Me.ChangePasswordButton.Size = New System.Drawing.Size(87, 39)
+        Me.ChangePasswordButton.TabIndex = 4
+        Me.ChangePasswordButton.Text = "Change"
+        Me.ChangePasswordButton.UseVisualStyleBackColor = True
         '
         'PasswordTextBox
         '
@@ -97,14 +97,14 @@ Partial Class UserControls
         Me.PasswordTextBox.Size = New System.Drawing.Size(127, 22)
         Me.PasswordTextBox.TabIndex = 3
         '
-        'ChangePasswordButton
+        'Label2
         '
-        Me.ChangePasswordButton.Location = New System.Drawing.Point(224, 61)
-        Me.ChangePasswordButton.Name = "ChangePasswordButton"
-        Me.ChangePasswordButton.Size = New System.Drawing.Size(87, 39)
-        Me.ChangePasswordButton.TabIndex = 4
-        Me.ChangePasswordButton.Text = "Change"
-        Me.ChangePasswordButton.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 69)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(69, 17)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Password"
         '
         'Label3
         '
@@ -199,37 +199,23 @@ Partial Class UserControls
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(415, 264)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'NameTextBox
+        'Label9
         '
-        Me.NameTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NameTextBox.Location = New System.Drawing.Point(100, 3)
-        Me.NameTextBox.Name = "NameTextBox"
-        Me.NameTextBox.Size = New System.Drawing.Size(312, 22)
-        Me.NameTextBox.TabIndex = 9
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Location = New System.Drawing.Point(3, 37)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(91, 37)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "Last Name"
         '
-        'LastNameTextBox
+        'PhoneTextBox
         '
-        Me.LastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LastNameTextBox.Location = New System.Drawing.Point(100, 40)
-        Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(312, 22)
-        Me.LastNameTextBox.TabIndex = 10
-        '
-        'CompanyTextBox
-        '
-        Me.CompanyTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CompanyTextBox.Location = New System.Drawing.Point(100, 77)
-        Me.CompanyTextBox.Name = "CompanyTextBox"
-        Me.CompanyTextBox.Size = New System.Drawing.Size(312, 22)
-        Me.CompanyTextBox.TabIndex = 11
-        '
-        'TitleTextBox
-        '
-        Me.TitleTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TitleTextBox.Location = New System.Drawing.Point(100, 114)
-        Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(312, 22)
-        Me.TitleTextBox.TabIndex = 12
+        Me.PhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PhoneTextBox.Location = New System.Drawing.Point(100, 188)
+        Me.PhoneTextBox.Name = "PhoneTextBox"
+        Me.PhoneTextBox.Size = New System.Drawing.Size(312, 22)
+        Me.PhoneTextBox.TabIndex = 14
         '
         'EmailTextBox
         '
@@ -239,13 +225,37 @@ Partial Class UserControls
         Me.EmailTextBox.Size = New System.Drawing.Size(312, 22)
         Me.EmailTextBox.TabIndex = 13
         '
-        'PhoneTextBox
+        'TitleTextBox
         '
-        Me.PhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PhoneTextBox.Location = New System.Drawing.Point(100, 188)
-        Me.PhoneTextBox.Name = "PhoneTextBox"
-        Me.PhoneTextBox.Size = New System.Drawing.Size(312, 22)
-        Me.PhoneTextBox.TabIndex = 14
+        Me.TitleTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TitleTextBox.Location = New System.Drawing.Point(100, 114)
+        Me.TitleTextBox.Name = "TitleTextBox"
+        Me.TitleTextBox.Size = New System.Drawing.Size(312, 22)
+        Me.TitleTextBox.TabIndex = 12
+        '
+        'CompanyTextBox
+        '
+        Me.CompanyTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CompanyTextBox.Location = New System.Drawing.Point(100, 77)
+        Me.CompanyTextBox.Name = "CompanyTextBox"
+        Me.CompanyTextBox.Size = New System.Drawing.Size(312, 22)
+        Me.CompanyTextBox.TabIndex = 11
+        '
+        'LastNameTextBox
+        '
+        Me.LastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LastNameTextBox.Location = New System.Drawing.Point(100, 40)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(312, 22)
+        Me.LastNameTextBox.TabIndex = 10
+        '
+        'NameTextBox
+        '
+        Me.NameTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NameTextBox.Location = New System.Drawing.Point(100, 3)
+        Me.NameTextBox.Name = "NameTextBox"
+        Me.NameTextBox.Size = New System.Drawing.Size(312, 22)
+        Me.NameTextBox.TabIndex = 9
         '
         'Label8
         '
@@ -264,16 +274,6 @@ Partial Class UserControls
         Me.FaxTextBox.Name = "FaxTextBox"
         Me.FaxTextBox.Size = New System.Drawing.Size(312, 22)
         Me.FaxTextBox.TabIndex = 17
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Location = New System.Drawing.Point(3, 37)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(91, 37)
-        Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Last Name"
         '
         'UserControls
         '

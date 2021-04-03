@@ -3,14 +3,15 @@
     Public Attempts As Integer = 0
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.PasswordChar = "*"
-        Dim AdminUser As New User("jtetrault", "GiseleLalonde1", "Admin")
         If UserList Is Nothing Then
+            Dim AdminUser As New User("jtetrault", "GiseleLalonde1", "Admin")
             Dim tempList As New List(Of User)({AdminUser})
             UserList = tempList
             SaveUsers()
-        Else
             LoadUsers()
         End If
+
+        LoadUsers()
     End Sub
 
     Public Sub LoadUsers()
@@ -19,7 +20,6 @@
         f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
         s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
         UserList = DirectCast(f.Deserialize(s), Object)
-        IE_Expense_Helper.UserList = UserList
         s.Close()
     End Sub
     Public Sub SaveUsers()

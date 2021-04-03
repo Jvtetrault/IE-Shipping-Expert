@@ -23,6 +23,24 @@ Public Class IE_Expense_Helper
         Me.AllowDrop = True
     End Sub
 
+    Public Sub LoadUsers()
+        Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
+        Dim s As IO.Stream
+        f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
+        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
+        UserList = DirectCast(f.Deserialize(s), Object)
+        s.Close()
+    End Sub
+
+    Public Sub SaveUsers()
+        Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
+        Dim s As IO.Stream
+        F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
+        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create, IO.FileAccess.Write, IO.FileShare.None)
+        F.Serialize(s, UserList)
+        s.Close()
+    End Sub
+
     Public Sub AdminRights(ByVal HasRights As Boolean)
         If HasRights = True Then
             DevCheckBox.Visible = True
@@ -71,6 +89,7 @@ Public Class IE_Expense_Helper
 
     Private Sub AccessControlToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccessControlToolStripMenuItem.Click
         Dim UserControlForm As New UserControls
+        UserControlForm.CurrentUser = CurrentUser
         UserControlForm.Show()
     End Sub
 End Class
