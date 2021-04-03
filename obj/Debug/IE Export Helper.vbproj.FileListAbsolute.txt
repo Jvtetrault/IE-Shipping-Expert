@@ -2,3 +2,28 @@ C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE Export Helper.vbpr
 C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE_Export_Helper.IE_Expense_Helper.resources
 C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE_Export_Helper.Resources.resources
 C:\Users\jtetrault\source\repos\IE Export Helper\obj\Debug\IE Export Helper.vbproj.GenerateResource.cache
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.vbprojAssemblyReference.cache
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.IE_Expense_Helper.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.Login.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.Resources.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.PDF_Test.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.vbproj.GenerateResource.cache
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.vbproj.CoreCompileInputs.cache
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IE Export Helper.exe.config
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IE Export Helper.exe
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IE Export Helper.pdb
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IE Export Helper.xml
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IKVM.OpenJDK.Core.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IKVM.OpenJDK.Text.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IKVM.OpenJDK.Util.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\IKVM.Runtime.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\pdfbox-1.8.9.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\commons-logging.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\bin\Debug\fontbox-1.8.9.dll
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.vbproj.CopyComplete
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.exe
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.xml
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export Helper.pdb
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.UserControls.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.AdminUserControls.resources

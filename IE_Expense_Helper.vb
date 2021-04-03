@@ -14,8 +14,24 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class IE_Expense_Helper
     Private files() As String
+    Public CurrentUser As User
+    Public UserList As List(Of User)
     Private Sub IE_Expense_Helper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim LoginWindow As New Login
+        LoginWindow.Show()
+        Me.Enabled = False
         Me.AllowDrop = True
+    End Sub
+
+    Public Sub AdminRights(ByVal HasRights As Boolean)
+        If HasRights = True Then
+            DevCheckBox.Visible = True
+            UserControlButton.Visible = True
+        Else
+            DevCheckBox.Visible = False
+            UserControlButton.Visible = False
+        End If
+
     End Sub
 
     Private Sub IE_Expense_Helper_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
@@ -23,6 +39,11 @@ Public Class IE_Expense_Helper
         For Each path In files
             Dim ext As String = IO.Path.GetExtension(path)
             If ext = ".pdf" Then
+                If DevCheckBox.Checked = True Then
+
+                Else
+
+                End If
                 'Run Main Script here -> Probably going to generate new form(s) based on PDF's being taken in
             End If
         Next
@@ -36,5 +57,20 @@ Public Class IE_Expense_Helper
 
     Private Sub OpenPDF()
 
+    End Sub
+
+    Private Sub UserControlButton_Click(sender As Object, e As EventArgs) Handles UserControlButton.Click
+        Dim UserControls As New AdminUserControls
+        Login.LoadUsers()
+        For Each User As User In Login.UserList
+            UserControls.UserDataGridView.Rows.Add(User.Username, User.Password, User.Permissions)
+        Next
+
+        UserControls.Show()
+    End Sub
+
+    Private Sub AccessControlToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccessControlToolStripMenuItem.Click
+        Dim UserControlForm As New UserControls
+        UserControlForm.Show()
     End Sub
 End Class

@@ -6,8 +6,9 @@
     Friend _fax As String
     Friend _email As String
     Friend _title As String
+    Friend _primary As Boolean
 
-    Public Sub New(ByVal client As String, Optional ByVal name As String = "", Optional ByVal phone As String = "", Optional ByVal mobile As String = "", Optional ByVal email As String = "", Optional ByVal fax As String = "", Optional ByVal title As String = "")
+    Public Sub New(ByVal client As String, Optional ByVal name As String = "", Optional ByVal phone As String = "", Optional ByVal mobile As String = "", Optional ByVal email As String = "", Optional ByVal fax As String = "", Optional ByVal title As String = "", ByVal Optional Primary As Boolean = False)
         _client = client
         _name = name
         _phone = phone
@@ -15,7 +16,17 @@
         _email = email
         _fax = fax
         _title = title
+        _primary = Primary
     End Sub
+
+    Public Property Primary() As Boolean
+        Get
+            Return _primary
+        End Get
+        Set(value As Boolean)
+            _primary = value
+        End Set
+    End Property
 
     Public Property Client() As String
         Get
