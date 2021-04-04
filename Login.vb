@@ -3,32 +3,16 @@
     Public Attempts As Integer = 0
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.PasswordChar = "*"
-        If UserList Is Nothing Then
+        If My.Computer.FileSystem.FileExists("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin") = False Then
             Dim AdminUser As New User("jtetrault", "GiseleLalonde1", "Admin")
             Dim tempList As New List(Of User)({AdminUser})
             UserList = tempList
-            SaveUsers()
-            LoadUsers()
+            IE_Expense_Helper.SaveUsers(UserList)
+            UserList = IE_Expense_Helper.LoadUsers()
         End If
 
-        LoadUsers()
-    End Sub
-
-    Public Sub LoadUsers()
-        Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
-        Dim s As IO.Stream
-        f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
-        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
-        UserList = DirectCast(f.Deserialize(s), Object)
-        s.Close()
-    End Sub
-    Public Sub SaveUsers()
-        Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
-        Dim s As IO.Stream
-        F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
-        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create, IO.FileAccess.Write, IO.FileShare.None)
-        F.Serialize(s, UserList)
-        s.Close()
+        UserList = IE_Expense_Helper.LoadUsers()
+        IE_Expense_Helper.UserList = UserList
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

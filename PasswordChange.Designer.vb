@@ -124,6 +124,10 @@ Partial Class PasswordChange
     Friend WithEvents NewPasswordTextBox As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComfirmPasswordTextBox As TextBox
+#Disable Warning BC40004 ' Member conflicts with member in the base type and should be declared 'Shadows'
     Friend WithEvents CancelButton As Button
+#Enable Warning BC40004 ' Member conflicts with member in the base type and should be declared 'Shadows'
+#Disable Warning BC40004 ' Member conflicts with member in the base type and should be declared 'Shadows'
     Friend WithEvents AcceptButton As Button
+#Enable Warning BC40004 ' Member conflicts with member in the base type and should be declared 'Shadows'
 End Class

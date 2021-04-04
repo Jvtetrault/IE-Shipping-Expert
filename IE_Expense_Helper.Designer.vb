@@ -98,7 +98,7 @@ Partial Class IE_Expense_Helper
         'AccessControlToolStripMenuItem
         '
         Me.AccessControlToolStripMenuItem.Name = "AccessControlToolStripMenuItem"
-        Me.AccessControlToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.AccessControlToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
         Me.AccessControlToolStripMenuItem.Text = "Access Control"
         '
         'IE_Expense_Helper

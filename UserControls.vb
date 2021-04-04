@@ -2,7 +2,7 @@
     Public CurrentUser As User
     Public UserList As List(Of User)
     Private Sub UserControls_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadUsers()
+        UserList = IE_Expense_Helper.LoadUsers()
         IE_Expense_Helper.Enabled = False
         UserNameTextBox.Text = CurrentUser.Username
         PasswordTextBox.PasswordChar = "*"
@@ -55,25 +55,8 @@
             End If
         Next
 
-        SaveUsers()
+        IE_Expense_Helper.SaveUsers(UserList)
 
-    End Sub
-    Public Sub SaveUsers()
-        Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
-        Dim s As IO.Stream
-        F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
-        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create, IO.FileAccess.Write, IO.FileShare.None)
-        F.Serialize(s, userlist)
-        s.Close()
-    End Sub
-
-    Public Sub LoadUsers()
-        Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
-        Dim s As IO.Stream
-        f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
-        s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
-        userlist = DirectCast(f.Deserialize(s), Object)
-        s.Close()
     End Sub
     Private Sub UserControls_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         SaveUserInformation()

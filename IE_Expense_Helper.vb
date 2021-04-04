@@ -23,16 +23,15 @@ Public Class IE_Expense_Helper
         Me.AllowDrop = True
     End Sub
 
-    Public Sub LoadUsers()
+    Public Function LoadUsers() As List(Of User)
         Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
         s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
-        UserList = DirectCast(f.Deserialize(s), Object)
+        Return DirectCast(f.Deserialize(s), Object)
         s.Close()
-    End Sub
-
-    Public Sub SaveUsers()
+    End Function
+    Public Sub SaveUsers(ByVal UserList As List(Of User), Optional ByVal Attempts As Integer = 0)
         Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
@@ -79,8 +78,7 @@ Public Class IE_Expense_Helper
 
     Private Sub UserControlButton_Click(sender As Object, e As EventArgs) Handles UserControlButton.Click
         Dim UserControls As New AdminUserControls
-        Login.LoadUsers()
-        For Each User As User In Login.UserList
+        For Each User As User In UserList
             UserControls.UserDataGridView.Rows.Add(User.Username, User.Password, User.Permissions)
         Next
 
@@ -92,4 +90,6 @@ Public Class IE_Expense_Helper
         UserControlForm.CurrentUser = CurrentUser
         UserControlForm.Show()
     End Sub
+
+
 End Class
