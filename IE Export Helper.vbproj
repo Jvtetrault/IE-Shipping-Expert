@@ -93,6 +93,12 @@
   <ItemGroup>
     <Compile Include="Client.vb" />
     <Compile Include="Contact.vb" />
+    <Compile Include="CreateUserWindow.Designer.vb">
+      <DependentUpon>CreateUserWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CreateUserWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="IE_Expense_Helper.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <Compile Include="Vendor.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreateUserWindow.resx">
+      <DependentUpon>CreateUserWindow.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IE_Expense_Helper.resx">
       <DependentUpon>IE_Expense_Helper.vb</DependentUpon>
     </EmbeddedResource>

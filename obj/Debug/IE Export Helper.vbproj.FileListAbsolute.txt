@@ -28,3 +28,4 @@ C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE Export H
 C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.UserControls.resources
 C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.AdminUserControls.resources
 C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.PasswordChange.resources
+C:\Users\JVT-Gaming PC\Documents\GitHub\IE-Shipping-Expert\obj\Debug\IE_Export_Helper.CreateUserWindow.resources

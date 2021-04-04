@@ -23,14 +23,14 @@ Partial Class AdminUserControls
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.UserDataGridView = New System.Windows.Forms.DataGridView()
-        Me.UserColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PasswordColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserTypeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserInfoDataGridView = New System.Windows.Forms.DataGridView()
         Me.InfoType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Info = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CreateUserButton = New System.Windows.Forms.Button()
         Me.DeleteUserButton = New System.Windows.Forms.Button()
+        Me.UserColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserTypeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.UserDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserInfoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,30 +46,6 @@ Partial Class AdminUserControls
         Me.UserDataGridView.RowTemplate.Height = 24
         Me.UserDataGridView.Size = New System.Drawing.Size(400, 426)
         Me.UserDataGridView.TabIndex = 0
-        '
-        'UserColumn
-        '
-        Me.UserColumn.HeaderText = "User"
-        Me.UserColumn.MinimumWidth = 6
-        Me.UserColumn.Name = "UserColumn"
-        Me.UserColumn.ReadOnly = True
-        Me.UserColumn.Width = 125
-        '
-        'PasswordColumn
-        '
-        Me.PasswordColumn.HeaderText = "Password"
-        Me.PasswordColumn.MinimumWidth = 6
-        Me.PasswordColumn.Name = "PasswordColumn"
-        Me.PasswordColumn.ReadOnly = True
-        Me.PasswordColumn.Width = 125
-        '
-        'UserTypeColumn
-        '
-        Me.UserTypeColumn.HeaderText = "User Type"
-        Me.UserTypeColumn.MinimumWidth = 6
-        Me.UserTypeColumn.Name = "UserTypeColumn"
-        Me.UserTypeColumn.ReadOnly = True
-        Me.UserTypeColumn.Width = 125
         '
         'UserInfoDataGridView
         '
@@ -115,6 +91,28 @@ Partial Class AdminUserControls
         Me.DeleteUserButton.Text = "Delete User"
         Me.DeleteUserButton.UseVisualStyleBackColor = True
         '
+        'UserColumn
+        '
+        Me.UserColumn.HeaderText = "User"
+        Me.UserColumn.MinimumWidth = 6
+        Me.UserColumn.Name = "UserColumn"
+        Me.UserColumn.ReadOnly = True
+        Me.UserColumn.Width = 125
+        '
+        'PasswordColumn
+        '
+        Me.PasswordColumn.HeaderText = "Password"
+        Me.PasswordColumn.MinimumWidth = 6
+        Me.PasswordColumn.Name = "PasswordColumn"
+        Me.PasswordColumn.Width = 125
+        '
+        'UserTypeColumn
+        '
+        Me.UserTypeColumn.HeaderText = "User Type"
+        Me.UserTypeColumn.MinimumWidth = 6
+        Me.UserTypeColumn.Name = "UserTypeColumn"
+        Me.UserTypeColumn.Width = 125
+        '
         'AdminUserControls
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -133,12 +131,12 @@ Partial Class AdminUserControls
     End Sub
 
     Friend WithEvents UserDataGridView As DataGridView
-    Friend WithEvents UserColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PasswordColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UserTypeColumn As DataGridViewTextBoxColumn
     Friend WithEvents UserInfoDataGridView As DataGridView
     Friend WithEvents CreateUserButton As Button
     Friend WithEvents DeleteUserButton As Button
     Friend WithEvents InfoType As DataGridViewTextBoxColumn
     Friend WithEvents Info As DataGridViewTextBoxColumn
+    Friend WithEvents UserColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PasswordColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UserTypeColumn As DataGridViewTextBoxColumn
 End Class

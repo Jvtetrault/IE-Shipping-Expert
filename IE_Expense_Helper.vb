@@ -24,6 +24,7 @@ Public Class IE_Expense_Helper
     End Sub
 
     Public Function LoadUsers() As List(Of User)
+        Threading.Thread.Sleep(500)
         Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
@@ -32,6 +33,7 @@ Public Class IE_Expense_Helper
         s.Close()
     End Function
     Public Sub SaveUsers(ByVal UserList As List(Of User), Optional ByVal Attempts As Integer = 0)
+        Threading.Thread.Sleep(500)
         Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
@@ -78,10 +80,6 @@ Public Class IE_Expense_Helper
 
     Private Sub UserControlButton_Click(sender As Object, e As EventArgs) Handles UserControlButton.Click
         Dim UserControls As New AdminUserControls
-        For Each User As User In UserList
-            UserControls.UserDataGridView.Rows.Add(User.Username, User.Password, User.Permissions)
-        Next
-
         UserControls.Show()
     End Sub
 
@@ -90,6 +88,4 @@ Public Class IE_Expense_Helper
         UserControlForm.CurrentUser = CurrentUser
         UserControlForm.Show()
     End Sub
-
-
 End Class
