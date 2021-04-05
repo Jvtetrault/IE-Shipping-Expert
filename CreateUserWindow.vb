@@ -2,7 +2,8 @@
 
     Public Userlist As List(Of User)
     Private Sub CreateUserWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Userlist = IE_Expense_Helper.LoadUsers()
+        IE_Expense_Helper.LoadUsers()
+        Userlist = IE_Expense_Helper.UserList
         PasswordTextBox.Enabled = False
         GenPassCheckBox.Checked = True
         AdminUserControls.Enabled = False

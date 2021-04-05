@@ -4,15 +4,20 @@
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.PasswordChar = "*"
         If My.Computer.FileSystem.FileExists("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin") = False Then
+            Dim fs As System.IO.FileStream = System.IO.File.Create("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create)
+            fs.Close()
+            fs.Dispose()
+            Threading.Thread.Sleep(500)
             Dim AdminUser As New User("jtetrault", "GiseleLalonde1", "Admin")
             Dim tempList As New List(Of User)({AdminUser})
             UserList = tempList
             IE_Expense_Helper.SaveUsers(UserList)
-            UserList = IE_Expense_Helper.LoadUsers()
+            IE_Expense_Helper.LoadUsers()
+            UserList = IE_Expense_Helper.UserList
         End If
 
-        UserList = IE_Expense_Helper.LoadUsers()
-        IE_Expense_Helper.UserList = UserList
+        IE_Expense_Helper.LoadUsers()
+        UserList = IE_Expense_Helper.UserList
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

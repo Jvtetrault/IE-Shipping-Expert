@@ -1,7 +1,8 @@
 ﻿Public Class AdminUserControls
     Public Userlist As List(Of User)
     Private Sub AdminUserControls_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Userlist = IE_Expense_Helper.LoadUsers()
+        IE_Expense_Helper.LoadUsers()
+        Userlist = IE_Expense_Helper.UserList
         For Each UserMember As User In Userlist
             UserDataGridView.Rows.Add(UserMember.Username, UserMember.Password, UserMember.Permissions)
         Next

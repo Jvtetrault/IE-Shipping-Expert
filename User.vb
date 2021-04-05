@@ -21,6 +21,9 @@
             Return _username
         End Get
         Set(value As String)
+            If value.Contains(" ") Then
+                MsgBox("Whitespaces were found and were replaced" & vbNewLine & value & " = " & value.Replace(" ", ""))
+            End If
             _username = value
         End Set
     End Property

@@ -23,15 +23,18 @@ Public Class IE_Expense_Helper
         Me.AllowDrop = True
     End Sub
 
-    Public Function LoadUsers() As List(Of User)
+    Public Sub LoadUsers() 'As List(Of User)
         Threading.Thread.Sleep(500)
         Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
         s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.None)
-        Return DirectCast(f.Deserialize(s), Object)
+        'Return DirectCast(f.Deserialize(s), Object)
+        UserList = DirectCast(f.Deserialize(s), Object)
         s.Close()
-    End Function
+        s.Dispose()
+        Threading.Thread.Sleep(500)
+    End Sub
     Public Sub SaveUsers(ByVal UserList As List(Of User), Optional ByVal Attempts As Integer = 0)
         Threading.Thread.Sleep(500)
         Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
@@ -40,6 +43,8 @@ Public Class IE_Expense_Helper
         s = New IO.FileStream("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create, IO.FileAccess.Write, IO.FileShare.None)
         F.Serialize(s, UserList)
         s.Close()
+        s.Dispose()
+        Threading.Thread.Sleep(500)
     End Sub
 
     Public Sub AdminRights(ByVal HasRights As Boolean)

@@ -2,7 +2,8 @@
     Public CurrentUser As User
     Public UserList As List(Of User)
     Private Sub UserControls_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        UserList = IE_Expense_Helper.LoadUsers()
+        IE_Expense_Helper.LoadUsers()
+        UserList = IE_Expense_Helper.UserList
         IE_Expense_Helper.Enabled = False
         UserNameTextBox.Text = CurrentUser.Username
         PasswordTextBox.PasswordChar = "*"
