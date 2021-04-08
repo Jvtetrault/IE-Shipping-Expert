@@ -118,6 +118,7 @@ Partial Class CreateUserWindow
         Me.MinimizeBox = False
         Me.Name = "CreateUserWindow"
         Me.ShowIcon = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "CreateUserWindow"
         Me.ResumeLayout(False)
         Me.PerformLayout()

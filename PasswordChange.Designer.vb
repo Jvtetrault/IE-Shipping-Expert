@@ -112,6 +112,7 @@ Partial Class PasswordChange
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CurrentPasswordTextBox)
         Me.Name = "PasswordChange"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "PasswordChange"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -82,7 +82,7 @@ Partial Class Login
         Me.Controls.Add(Me.Label1)
         Me.MaximizeBox = False
         Me.Name = "Login"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -2,6 +2,7 @@
 
     Public Userlist As List(Of User)
     Private Sub CreateUserWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost() = 99
         IE_Expense_Helper.LoadUsers()
         Userlist = IE_Expense_Helper.UserList
         PasswordTextBox.Enabled = False
@@ -23,14 +24,18 @@
                 Dim NewUser As New User(UserNameTextBox.Text, "NoPassword2021", PermissionsComboBox.SelectedItem.ToString)
                 Userlist.Add(NewUser)
                 IE_Expense_Helper.SaveUsers(Userlist)
-                AdminUserControls.Refresh()
+                Dim AdminUserControls As New AdminUserControls
+                Me.Close()
+                AdminUserControls.Show()
             End If
         Else
             If UserExists(UserNameTextBox.Text) = False Then
                 Dim NewUser As New User(UserNameTextBox.Text, PasswordTextBox.Text, PermissionsComboBox.SelectedItem.ToString)
                 Userlist.Add(NewUser)
                 IE_Expense_Helper.SaveUsers(Userlist)
-                AdminUserControls.Refresh()
+                Dim AdminUserControls As New AdminUserControls
+                Me.Close()
+                AdminUserControls.Show()
             End If
         End If
     End Sub

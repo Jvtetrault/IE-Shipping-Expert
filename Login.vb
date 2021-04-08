@@ -2,6 +2,7 @@
     Public UserList As List(Of User)
     Public Attempts As Integer = 0
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost() = 99
         PasswordTextBox.PasswordChar = "*"
         If My.Computer.FileSystem.FileExists("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin") = False Then
             Dim fs As System.IO.FileStream = System.IO.File.Create("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create)

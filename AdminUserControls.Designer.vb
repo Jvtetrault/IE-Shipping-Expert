@@ -23,16 +23,14 @@ Partial Class AdminUserControls
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.UserDataGridView = New System.Windows.Forms.DataGridView()
-        Me.UserInfoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.InfoType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Info = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CreateUserButton = New System.Windows.Forms.Button()
-        Me.DeleteUserButton = New System.Windows.Forms.Button()
         Me.UserColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PasswordColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserTypeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreateUserButton = New System.Windows.Forms.Button()
+        Me.DeleteUserButton = New System.Windows.Forms.Button()
+        Me.EditUserButton = New System.Windows.Forms.Button()
+        Me.CurrentUserLabel = New System.Windows.Forms.Label()
         CType(Me.UserDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UserInfoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UserDataGridView
@@ -40,56 +38,13 @@ Partial Class AdminUserControls
         Me.UserDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.UserDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UserColumn, Me.PasswordColumn, Me.UserTypeColumn})
         Me.UserDataGridView.Location = New System.Drawing.Point(12, 12)
+        Me.UserDataGridView.MultiSelect = False
         Me.UserDataGridView.Name = "UserDataGridView"
         Me.UserDataGridView.RowHeadersVisible = False
         Me.UserDataGridView.RowHeadersWidth = 51
         Me.UserDataGridView.RowTemplate.Height = 24
         Me.UserDataGridView.Size = New System.Drawing.Size(400, 426)
         Me.UserDataGridView.TabIndex = 0
-        '
-        'UserInfoDataGridView
-        '
-        Me.UserInfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.UserInfoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.InfoType, Me.Info})
-        Me.UserInfoDataGridView.Location = New System.Drawing.Point(418, 12)
-        Me.UserInfoDataGridView.Name = "UserInfoDataGridView"
-        Me.UserInfoDataGridView.RowHeadersVisible = False
-        Me.UserInfoDataGridView.RowHeadersWidth = 51
-        Me.UserInfoDataGridView.RowTemplate.Height = 24
-        Me.UserInfoDataGridView.Size = New System.Drawing.Size(370, 426)
-        Me.UserInfoDataGridView.TabIndex = 1
-        '
-        'InfoType
-        '
-        Me.InfoType.HeaderText = "InfoType"
-        Me.InfoType.MinimumWidth = 6
-        Me.InfoType.Name = "InfoType"
-        Me.InfoType.Width = 125
-        '
-        'Info
-        '
-        Me.Info.HeaderText = "Information"
-        Me.Info.MinimumWidth = 6
-        Me.Info.Name = "Info"
-        Me.Info.Width = 125
-        '
-        'CreateUserButton
-        '
-        Me.CreateUserButton.Location = New System.Drawing.Point(12, 444)
-        Me.CreateUserButton.Name = "CreateUserButton"
-        Me.CreateUserButton.Size = New System.Drawing.Size(123, 29)
-        Me.CreateUserButton.TabIndex = 2
-        Me.CreateUserButton.Text = "Create User"
-        Me.CreateUserButton.UseVisualStyleBackColor = True
-        '
-        'DeleteUserButton
-        '
-        Me.DeleteUserButton.Location = New System.Drawing.Point(665, 444)
-        Me.DeleteUserButton.Name = "DeleteUserButton"
-        Me.DeleteUserButton.Size = New System.Drawing.Size(123, 29)
-        Me.DeleteUserButton.TabIndex = 3
-        Me.DeleteUserButton.Text = "Delete User"
-        Me.DeleteUserButton.UseVisualStyleBackColor = True
         '
         'UserColumn
         '
@@ -113,30 +68,67 @@ Partial Class AdminUserControls
         Me.UserTypeColumn.Name = "UserTypeColumn"
         Me.UserTypeColumn.Width = 125
         '
+        'CreateUserButton
+        '
+        Me.CreateUserButton.Location = New System.Drawing.Point(12, 444)
+        Me.CreateUserButton.Name = "CreateUserButton"
+        Me.CreateUserButton.Size = New System.Drawing.Size(123, 29)
+        Me.CreateUserButton.TabIndex = 2
+        Me.CreateUserButton.Text = "Create User"
+        Me.CreateUserButton.UseVisualStyleBackColor = True
+        '
+        'DeleteUserButton
+        '
+        Me.DeleteUserButton.Location = New System.Drawing.Point(289, 444)
+        Me.DeleteUserButton.Name = "DeleteUserButton"
+        Me.DeleteUserButton.Size = New System.Drawing.Size(123, 29)
+        Me.DeleteUserButton.TabIndex = 3
+        Me.DeleteUserButton.Text = "Delete User"
+        Me.DeleteUserButton.UseVisualStyleBackColor = True
+        '
+        'EditUserButton
+        '
+        Me.EditUserButton.Location = New System.Drawing.Point(165, 444)
+        Me.EditUserButton.Name = "EditUserButton"
+        Me.EditUserButton.Size = New System.Drawing.Size(88, 29)
+        Me.EditUserButton.TabIndex = 4
+        Me.EditUserButton.Text = "Edit User"
+        Me.EditUserButton.UseVisualStyleBackColor = True
+        '
+        'CurrentUserLabel
+        '
+        Me.CurrentUserLabel.AutoSize = True
+        Me.CurrentUserLabel.Location = New System.Drawing.Point(12, 481)
+        Me.CurrentUserLabel.Name = "CurrentUserLabel"
+        Me.CurrentUserLabel.Size = New System.Drawing.Size(38, 17)
+        Me.CurrentUserLabel.TabIndex = 5
+        Me.CurrentUserLabel.Text = "User"
+        '
         'AdminUserControls
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 485)
+        Me.ClientSize = New System.Drawing.Size(425, 507)
+        Me.Controls.Add(Me.CurrentUserLabel)
+        Me.Controls.Add(Me.EditUserButton)
         Me.Controls.Add(Me.DeleteUserButton)
         Me.Controls.Add(Me.CreateUserButton)
-        Me.Controls.Add(Me.UserInfoDataGridView)
         Me.Controls.Add(Me.UserDataGridView)
         Me.Name = "AdminUserControls"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "UserControls"
         CType(Me.UserDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UserInfoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents UserDataGridView As DataGridView
-    Friend WithEvents UserInfoDataGridView As DataGridView
     Friend WithEvents CreateUserButton As Button
     Friend WithEvents DeleteUserButton As Button
-    Friend WithEvents InfoType As DataGridViewTextBoxColumn
-    Friend WithEvents Info As DataGridViewTextBoxColumn
     Friend WithEvents UserColumn As DataGridViewTextBoxColumn
     Friend WithEvents PasswordColumn As DataGridViewTextBoxColumn
     Friend WithEvents UserTypeColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EditUserButton As Button
+    Friend WithEvents CurrentUserLabel As Label
 End Class

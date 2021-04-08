@@ -44,6 +44,8 @@ Partial Class UserControls
         Me.NameTextBox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.FaxTextBox = New System.Windows.Forms.TextBox()
+        Me.PermissionComboBox = New System.Windows.Forms.ComboBox()
+        Me.PermLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -275,14 +277,36 @@ Partial Class UserControls
         Me.FaxTextBox.Size = New System.Drawing.Size(312, 22)
         Me.FaxTextBox.TabIndex = 17
         '
+        'PermissionComboBox
+        '
+        Me.PermissionComboBox.FormattingEnabled = True
+        Me.PermissionComboBox.Items.AddRange(New Object() {"Normal", "Admin"})
+        Me.PermissionComboBox.Location = New System.Drawing.Point(335, 73)
+        Me.PermissionComboBox.Name = "PermissionComboBox"
+        Me.PermissionComboBox.Size = New System.Drawing.Size(107, 24)
+        Me.PermissionComboBox.TabIndex = 10
+        Me.PermissionComboBox.Text = "Normal"
+        '
+        'PermLabel
+        '
+        Me.PermLabel.AutoSize = True
+        Me.PermLabel.Location = New System.Drawing.Point(335, 46)
+        Me.PermLabel.Name = "PermLabel"
+        Me.PermLabel.Size = New System.Drawing.Size(84, 17)
+        Me.PermLabel.TabIndex = 11
+        Me.PermLabel.Text = "Permissions"
+        '
         'UserControls
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(469, 442)
+        Me.ClientSize = New System.Drawing.Size(460, 446)
+        Me.Controls.Add(Me.PermLabel)
+        Me.Controls.Add(Me.PermissionComboBox)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "UserControls"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "UserControls"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -290,6 +314,7 @@ Partial Class UserControls
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -315,4 +340,6 @@ Partial Class UserControls
     Friend WithEvents NameTextBox As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents FaxTextBox As TextBox
+    Friend WithEvents PermissionComboBox As ComboBox
+    Friend WithEvents PermLabel As Label
 End Class

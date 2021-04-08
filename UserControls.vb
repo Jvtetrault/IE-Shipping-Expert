@@ -1,13 +1,32 @@
 ﻿Public Class UserControls
     Public CurrentUser As User
     Public UserList As List(Of User)
+    Public OpenWithPermission As String = "Normal"
+
     Private Sub UserControls_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost() = 99
         IE_Expense_Helper.LoadUsers()
-        UserList = IE_Expense_Helper.UserList
-        IE_Expense_Helper.Enabled = False
-        UserNameTextBox.Text = CurrentUser.Username
-        PasswordTextBox.PasswordChar = "*"
-        PasswordTextBox.Text = CurrentUser.Password
+        If OpenWithPermission = "Normal" Then
+            UserList = IE_Expense_Helper.UserList
+            IE_Expense_Helper.Enabled = False
+            UserNameTextBox.Text = CurrentUser.Username
+            PasswordTextBox.PasswordChar = "*"
+            PasswordTextBox.Text = CurrentUser.Password
+            PermissionComboBox.Visible = False
+            PermissionComboBox.Enabled = False
+            PermLabel.Visible = False
+        ElseIf OpenWithPermission = "Admin" Then
+            UserNameTextBox.Text = CurrentUser.Username
+            PasswordTextBox.Text = CurrentUser.Password
+            ChangePasswordButton.Enabled = False
+            UserNameTextBox.Enabled = True
+            PasswordTextBox.Enabled = True
+            PermissionComboBox.Visible = True
+            PermissionComboBox.Enabled = True
+            PermLabel.Visible = True
+            PermissionComboBox.Text = CurrentUser.Permissions
+        End If
+
 
         If CurrentUser.name IsNot Nothing Then
             NameTextBox.Text = CurrentUser.name
@@ -36,7 +55,6 @@
         If CurrentUser.fax IsNot Nothing Then
             FaxTextBox.Text = CurrentUser.fax
         End If
-
     End Sub
 
     Public Sub SaveUserInformation()
@@ -46,7 +64,13 @@
         currentUser.title = TitleTextBox.Text
         currentUser.email = EmailTextBox.Text
         currentUser.phone = PhoneTextBox.Text
-        currentUser.fax = FaxTextBox.Text
+        CurrentUser.fax = FaxTextBox.Text
+
+        If OpenWithPermission = "Admin" Then
+            CurrentUser.Username = UserNameTextBox.Text
+            CurrentUser.Password = PasswordTextBox.Text
+            CurrentUser.Permissions = PermissionComboBox.Text
+        End If
 
         For Each UserInList As User In userlist
             If currentUser.Username = UserInList.Username Then
@@ -57,6 +81,10 @@
         Next
 
         IE_Expense_Helper.SaveUsers(UserList)
+
+        If OpenWithPermission = "Admin" Then
+            AdminUserControls.Reload()
+        End If
 
     End Sub
     Private Sub UserControls_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -76,4 +104,6 @@
         PasswordChange.currentUser = CurrentUser
         PasswordChange.Show()
     End Sub
+
+
 End Class

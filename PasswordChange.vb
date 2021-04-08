@@ -30,6 +30,7 @@
     End Sub
 
     Private Sub PasswordChange_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = 99
         CurrentPasswordTextBox.PasswordChar = "*"
         NewPasswordTextBox.PasswordChar = "*"
         ComfirmPasswordTextBox.PasswordChar = "*"

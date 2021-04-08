@@ -17,6 +17,8 @@ Public Class IE_Expense_Helper
     Public CurrentUser As User
     Public UserList As List(Of User)
     Private Sub IE_Expense_Helper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost() = 0
+        Me.SendToBack()
         Dim LoginWindow As New Login
         LoginWindow.Show()
         Me.Enabled = False
@@ -24,7 +26,6 @@ Public Class IE_Expense_Helper
     End Sub
 
     Public Sub LoadUsers() 'As List(Of User)
-        Threading.Thread.Sleep(500)
         Dim f As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         f = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
@@ -33,10 +34,8 @@ Public Class IE_Expense_Helper
         UserList = DirectCast(f.Deserialize(s), Object)
         s.Close()
         s.Dispose()
-        Threading.Thread.Sleep(500)
     End Sub
     Public Sub SaveUsers(ByVal UserList As List(Of User), Optional ByVal Attempts As Integer = 0)
-        Threading.Thread.Sleep(500)
         Dim F As Runtime.Serialization.Formatters.Binary.BinaryFormatter
         Dim s As IO.Stream
         F = New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
@@ -44,7 +43,6 @@ Public Class IE_Expense_Helper
         F.Serialize(s, UserList)
         s.Close()
         s.Dispose()
-        Threading.Thread.Sleep(500)
     End Sub
 
     Public Sub AdminRights(ByVal HasRights As Boolean)
@@ -84,11 +82,13 @@ Public Class IE_Expense_Helper
     End Sub
 
     Private Sub UserControlButton_Click(sender As Object, e As EventArgs) Handles UserControlButton.Click
+        Me.SendToBack()
         Dim UserControls As New AdminUserControls
         UserControls.Show()
     End Sub
 
     Private Sub AccessControlToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccessControlToolStripMenuItem.Click
+        Me.SendToBack()
         Dim UserControlForm As New UserControls
         UserControlForm.CurrentUser = CurrentUser
         UserControlForm.Show()
