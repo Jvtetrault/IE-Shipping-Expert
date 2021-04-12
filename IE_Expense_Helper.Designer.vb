@@ -98,7 +98,7 @@ Partial Class IE_Expense_Helper
         'AccessControlToolStripMenuItem
         '
         Me.AccessControlToolStripMenuItem.Name = "AccessControlToolStripMenuItem"
-        Me.AccessControlToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
+        Me.AccessControlToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.AccessControlToolStripMenuItem.Text = "Access Control"
         '
         'IE_Expense_Helper
@@ -115,6 +115,7 @@ Partial Class IE_Expense_Helper
         Me.MaximizeBox = False
         Me.Name = "IE_Expense_Helper"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "IE Expense Helper"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

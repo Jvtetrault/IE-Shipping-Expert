@@ -16,12 +16,25 @@ Public Class IE_Expense_Helper
     Private files() As String
     Public CurrentUser As User
     Public UserList As List(Of User)
+    Public Login As Boolean = False
     Private Sub IE_Expense_Helper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.TopMost() = 0
-        Me.SendToBack()
-        Dim LoginWindow As New Login
-        LoginWindow.Show()
-        Me.Enabled = False
+        If Login = True Then
+            Me.TopMost() = 0
+            Me.SendToBack()
+            Dim LoginWindow As New Login
+            LoginWindow.Show()
+            Me.Enabled = False
+            Me.AllowDrop = True
+        Else
+            UserControlButton.Enabled = False
+            SettingsToolStripMenuItem.Enabled = False
+            DevCheckBox.Visible = True
+        End If
+
+        LoadSettings()
+    End Sub
+
+    Public Sub LoadSettings()
         Me.AllowDrop = True
     End Sub
 
@@ -62,7 +75,8 @@ Public Class IE_Expense_Helper
             Dim ext As String = IO.Path.GetExtension(path)
             If ext = ".pdf" Then
                 If DevCheckBox.Checked = True Then
-
+                    Dim PDFEx As New PDF_Test(path)
+                    PDFEx.Show()
                 Else
 
                 End If

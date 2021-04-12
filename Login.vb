@@ -4,6 +4,7 @@
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TopMost() = 99
         PasswordTextBox.PasswordChar = "*"
+        UsernameTextBox.Select()
         If My.Computer.FileSystem.FileExists("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin") = False Then
             Dim fs As System.IO.FileStream = System.IO.File.Create("C:\ProgramData\Lincoln Electric\IE Shipping Expert\IESEU.bin", IO.FileMode.Create)
             fs.Close()
@@ -16,7 +17,6 @@
             IE_Expense_Helper.LoadUsers()
             UserList = IE_Expense_Helper.UserList
         End If
-
         IE_Expense_Helper.LoadUsers()
         UserList = IE_Expense_Helper.UserList
     End Sub
@@ -43,12 +43,29 @@
                 IE_Expense_Helper.Show()
                 Me.Close()
             End If
-
         Else
             MsgBox("You have been locked out due to excessive login attempts." & vbNewLine & "The application will now close" & vbNewLine & "Please contact your application administrator for help.")
             Me.Close()
             IE_Expense_Helper.Close()
         End If
-
     End Sub
+
+    Public Property ClosedByXButtonOrAltF4 As Boolean
+    Private Const SC_CLOSE As Integer = &HF060
+    Private Const WM_SYSCOMMAND As Integer = &H112
+    Protected Overrides Sub WndProc(ByRef msg As Message)
+        If msg.Msg = WM_SYSCOMMAND AndAlso msg.WParam.ToInt32() = SC_CLOSE Then ClosedByXButtonOrAltF4 = True
+        MyBase.WndProc(msg)
+    End Sub
+
+    Protected Overrides Sub OnShown(ByVal e As EventArgs)
+        ClosedByXButtonOrAltF4 = False
+    End Sub
+
+    Protected Overrides Sub OnFormClosing(ByVal e As FormClosingEventArgs)
+        If ClosedByXButtonOrAltF4 Then
+            IE_Expense_Helper.Close()
+        End If
+    End Sub
+
 End Class

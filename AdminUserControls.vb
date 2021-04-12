@@ -13,7 +13,7 @@
 
         UserDataGridView.Rows(0).Selected = 0
         CurrentUser = Userlist(0)
-        LoadUserInfo(0)
+        CurrentUserLabel.Text = Userlist(0).Username
     End Sub
 
     Private Sub DeleteUserButton_Click(sender As Object, e As EventArgs) Handles DeleteUserButton.Click
@@ -44,17 +44,21 @@
     End Sub
 
     Private Sub LoadUserInfo(ByVal Index As Integer)
-        CurrentSelectedUser = UserDataGridView.Rows(Index).Cells(0).Value
-        CurrentUserLabel.Text = CurrentSelectedUser
-        For Each checkuser As User In Userlist
-            If checkuser.Username = CurrentSelectedUser Then
-                CurrentUser = checkuser
+        Try
+            CurrentSelectedUser = UserDataGridView.Rows(Index).Cells(0).Value
+            CurrentUserLabel.Text = CurrentSelectedUser
+            For Each checkuser As User In Userlist
+                If checkuser.Username = CurrentSelectedUser Then
+                    CurrentUser = checkuser
+                End If
+            Next
+            If CurrentUser Is Nothing Then
+                Throw New Exception("No User was found, internal issue was detected")
             End If
-        Next
-        If CurrentUser Is Nothing Then
-            Throw New Exception("No User was found, internal issue was detected")
+        Catch ex As Exception
 
-        End If
+        End Try
+
 
     End Sub
 
@@ -70,9 +74,16 @@
     End Sub
 
     Private Sub UserDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles UserDataGridView.SelectionChanged
-        LoadUserInfo(UserDataGridView.CurrentRow.Index)
-    End Sub
+        Try
+            If Not UserDataGridView.CurrentRow.Index < 0 And Not Userlist.Count < 0 Then
+                LoadUserInfo(UserDataGridView.CurrentRow.Index)
+            End If
+        Catch ex As Exception
 
+        End Try
+
+
+    End Sub
 
     'Private Sub UserDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles UserDataGridView.RowEnter
 
