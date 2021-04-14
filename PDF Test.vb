@@ -14,6 +14,7 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class PDF_Test
     Private _path As String
+    Private ClientContact As New List(Of String)
     Public Sub New(ByVal Path As String)
         InitializeComponent()
         _path = Path
@@ -29,9 +30,69 @@ Public Class PDF_Test
         Dim regextest As Regex = New Regex(TextBox1.Text)
 
 
-        For Each Line As String In TestRichTextBox.Text
-            Dim Match As Match = regextest.Match(TestRichTextBox.Text)
-            RichTextBox2.AppendText(Match.Value)
+        For Each Line As String In TestRichTextBox.Lines
+            If Not GetRegexString(Line, regextest) = "" Then
+                RichTextBox2.AppendText(Line)
+            End If
         Next
+    End Sub
+
+    Public Function GetRegexString(ByVal Text As String, ByVal regex As Regex) As String
+        Dim match As Match = regex.Match(Text)
+        If match.Success Then
+            Return Text
+        Else
+            Return ""
+        End If
+    End Function
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim EntireText As New List(Of String)
+        Dim ClientInfo As String = "SOLD TO:"
+
+
+        For Each Line As String In TestRichTextBox.Lines
+            EntireText.Add(Line)
+        Next
+
+        For i = 0 To EntireText.Count - 1
+            If EntireText(i) = ClientInfo Then
+                RichTextBox2.AppendText(EntireText(i + 1) & vbNewLine)
+                RichTextBox2.AppendText(EntireText(i + 2) & vbNewLine)
+                RichTextBox2.AppendText(EntireText(i + 3) & vbNewLine)
+                RichTextBox2.AppendText(EntireText(i + 4) & vbNewLine)
+            End If
+        Next
+
+        GetClientInfo()
+
+    End Sub
+
+    Public Sub GetClientInfo()
+        Dim EntireText As New List(Of String)
+        Dim LookoutString As String = "SOLD TO:"
+        Dim LookoutString2 As String = "CUSTOMER NUMBER:"
+
+
+        For Each Line As String In TestRichTextBox.Lines
+            EntireText.Add(Line)
+        Next
+
+        For i = 0 To EntireText.Count - 1
+            If EntireText(i) = LookoutString Then
+                ClientContact.Add(EntireText(i + 1))
+                ClientContact.Add(EntireText(i + 2))
+                ClientContact.Add(EntireText(i + 3))
+                ClientContact.Add(EntireText(i + 4))
+            ElseIf EntireText(i) = LookoutString2 Then
+                ClientContact.Add(EntireText(i + 1))
+            End If
+        Next
+    End Sub
+
+    Public Sub GetShipperInfo()
+    End Sub
+
+    Public Sub GetMaterials()
     End Sub
 End Class

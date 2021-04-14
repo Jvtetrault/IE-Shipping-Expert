@@ -27,6 +27,7 @@ Partial Class PDF_Test
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TestRichTextBox
@@ -70,11 +71,21 @@ Partial Class PDF_Test
         Me.RichTextBox2.TabIndex = 4
         Me.RichTextBox2.Text = ""
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(1182, 724)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'PDF_Test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1269, 758)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
@@ -92,4 +103,5 @@ Partial Class PDF_Test
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents Button2 As Button
 End Class
